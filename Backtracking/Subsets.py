@@ -1,3 +1,4 @@
+#backtracking algorithm to generate all subsets pf a given set of unique integers.
 def subsets(nums):
     def backtrack(start, path):
         #Append the current subset (path) to the result:
