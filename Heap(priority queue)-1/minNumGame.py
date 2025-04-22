@@ -1,13 +1,16 @@
+import heapq
+
 def play_game(nums):
     arr = []
-    nums.sort()  # Sort to simulate minimum removal
-    while nums:
-        alice_pick = nums.pop(0)  # Alice removes min
-        bob_pick = nums.pop(0)    # Bob removes next min
+    heapq.heapify(nums)
 
-        arr.append(bob_pick)      # Bob appends first
-        arr.append(alice_pick)    # Alice appends next
+    while nums:
+        alice_pick = heapq.heappop(nums)
+        bob_pick = heapq.heappop(nums)
+
+        arr.append(bob_pick)
+        arr.append(alice_pick)
     return arr
 
-nums = [5, 4, 2, 3]
+nums = [5, 3, 1, 4, 2, 6]
 print(play_game(nums))  # Output: [2, 1, 4, 3, 6, 5]
